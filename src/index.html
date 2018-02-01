@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Gamedev Canvas Workshop</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        canvas {
+            background: rgb(0, 0, 0);
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="480" height="320"></canvas>
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        let paddle1Height = 75;
+        let paddle1Width = 10;
+        // Y is in the middle 
+        let paddle1Y = canvas.height / 2 - paddle1Height / 2;
+        let paddle2Y = paddle1Y;
+        let paddle2Height = paddle1Height;
+        let paddle2Width = paddle1Width;
+        let ballX = canvas.width / 2;
+        let ballY = canvas.height / 2;
+        let ballRadius = 10;
+        let p1Score = 0;
+        let p2Score = 0;
+        let dy = 2;
+        let dx = 2;
+        function verticalCollision() {
+            if (ballY + dy >= canvas.height || ballY + dy <= 0) {
+                dy = -dy;
+            }
+        }
+
+        function leftCollision() {
+            if (ballX + dx < 0) {
+                p2Score++;
+
+            }
+        }
+
+        function drawPaddles() {
+            //  Draw left paddle
+            ctx.beginPath();
+            ctx.rect(0, paddle1Y, paddle1Width, paddle1Height);
+            ctx.fillStyle = "white";
+            ctx.fill();
+            ctx.closePath();
+
+            // Draw right paddle
+            ctx.beginPath();
+            ctx.rect(canvas.width - paddle2Width, paddle2Y, paddle2Width, paddle2Height);
+            ctx.fillStyle = "white";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function drawBall() {
+            ctx.beginPath();
+            ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
+            ctx.fillStyle = "white";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            verticalCollision();
+            drawPaddles();
+            drawBall();
+            ballX += dx;
+            ballY += dy;
+        }
+        setInterval(draw, 10);
+    </script>
+</body>
