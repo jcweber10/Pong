@@ -1,4 +1,0 @@
-// Cumulative + what I need on final = 92 
-76.8375 + (x/100)*.2 = 92
-(x/100)*.2 = 15.1625
-I need a 75 on spanish.
