@@ -1,2 +1,2 @@
 # Pong
-This is a very basic pong game that is my first project in Javascript using canvas.
+This is the classic game of pong which I wrote based off of a tutorial for brick breaker for my first project in JavaScript.
