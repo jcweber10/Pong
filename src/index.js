@@ -1,4 +1,6 @@
 var canvas = document.getElementById("myCanvas");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;;
 var ctx = canvas.getContext("2d");
 // Keypressed booleans
 let upPressed = false;
@@ -99,10 +101,11 @@ function leftCollision() {
         p2Score++;
         initBoard();
     }
-    if (p2Score >= 10) {
+    if (p2Score >= 1) {
         alert("Congratulations player 1! YOU WIN!");
         p2Score = 0;
-        document.location.reload();
+        // document.location.reload();
+        window.location = "welcome.html";
     }
 }
 
@@ -114,10 +117,11 @@ function rightCollision() {
         p1Score++;
         initBoard();
     }
-    if (p1Score >= 10) {
+    if (p1Score >= 1) {
         alert("Congratulations player 1! YOU WIN!");
         p1Score = 0;
-        document.location.reload();
+        // document.location.reload();
+        window.location = "welcome.html";
     }
 }
 
