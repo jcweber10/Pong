@@ -8,3 +8,22 @@ canvas {
     display: block;
     margin: 0 auto;
 }
+
+.radioButtons{
+    position: absolute;
+    top:41.5%;
+    left: 56%;
+    color: white;
+}
+
+button{
+    position: absolute;
+    width: 10%;
+    height: 8%;
+    top: 50%;
+    left: 50%;
+    margin-top: -4%;
+    margin-left: -5%;
+    font-size: 30pt;
+    background-color: white;
+}
