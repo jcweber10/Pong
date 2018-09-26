@@ -119,6 +119,7 @@ function leftCollision() {
         dx = -dx;
     } else if (ballX + dx < 0) {
         p2Score++;
+        alert("Press enter to resume");
         initBoard();
     }
     if (p2Score >= scoreLimit) {
@@ -135,6 +136,7 @@ function rightCollision() {
         dx = -dx;
     } else if (ballX + dx > canvas.width) {
         p1Score++;
+        alert("Press enter to resume");
         initBoard();
     }
     if (p1Score >= scoreLimit) {
