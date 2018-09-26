@@ -6,6 +6,8 @@ let redrawCount = 0;
 // boolean to see if game has started yet
 let isLive = false;
 
+let scoreLimit = 10;
+
 // Change in x or y
 let change = 1;
 
@@ -119,7 +121,7 @@ function leftCollision() {
         p2Score++;
         initBoard();
     }
-    if (p2Score >= 1) {
+    if (p2Score >= scoreLimit) {
         alert("Congratulations player 1! YOU WIN!");
         p2Score = 0;
         // document.location.reload();
@@ -135,7 +137,7 @@ function rightCollision() {
         p1Score++;
         initBoard();
     }
-    if (p1Score >= 1) {
+    if (p1Score >= scoreLimit) {
         alert("Congratulations player 1! YOU WIN!");
         p1Score = 0;
         // document.location.reload();
