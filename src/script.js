@@ -1,6 +1,6 @@
 var canvas = document.getElementById("myCanvas");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;;
+canvas.width = window.innerWidth / 2;
+canvas.height = window.innerHeight / 2;
 var ctx = canvas.getContext("2d");
 // boolean to see if game has started yet
 let isLive = false;
@@ -108,7 +108,7 @@ function leftCollision() {
         alert("Congratulations player 1! YOU WIN!");
         p2Score = 0;
         // document.location.reload();
-        window.location = "welcome.html";
+        window.location = "index.html";
     }
 }
 
@@ -124,7 +124,7 @@ function rightCollision() {
         alert("Congratulations player 1! YOU WIN!");
         p1Score = 0;
         // document.location.reload();
-        window.location = "welcome.html";
+        window.location = "index.html";
     }
 }
 
