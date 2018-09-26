@@ -93,7 +93,7 @@ function hitsLeftPaddle() {
 }
 
 function hitsRightPaddle() {
-    return ballX >= canvas.width - paddle2Width && (ballY >= paddle2Y - 4 && ballY <= paddle2Y + paddleHeight + 4);
+    return ballX >= canvas.width - paddleWidth && (ballY >= paddle2Y - 4 && ballY <= paddle2Y + paddleHeight + 4);
 }
 
 // Collision with wall or paddle
@@ -152,7 +152,7 @@ function drawPaddles() {
 
     // Draw right paddle
     ctx.beginPath();
-    ctx.rect(canvas.width - paddle2Width, paddle2Y, paddle2Width, paddleHeight);
+    ctx.rect(canvas.width - paddleWidth, paddle2Y, paddleWidth, paddleHeight);
     ctx.fillStyle = "white";
     ctx.fill();
     ctx.closePath();
