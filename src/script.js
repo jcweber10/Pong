@@ -7,7 +7,7 @@ let redrawCount = 0;
 let isLive = false;
 
 // Change in x or y
-let change = 2;
+let change = .5;
 
 // Keypressed booleans
 let upPressed = false;
@@ -89,11 +89,11 @@ function verticalCollision() {
 }
 
 function hitsLeftPaddle() {
-    return ballX <= 0 + paddleWidth && (ballY >= paddle1Y - 4 && ballY <= paddle1Y + paddleHeight + 4);
+    return ballX - ballRadius <= paddleWidth && (ballY >= paddle1Y - 4 && ballY <= paddle1Y + paddleHeight + 4);
 }
 
 function hitsRightPaddle() {
-    return ballX >= canvas.width - paddleWidth && (ballY >= paddle2Y - 4 && ballY <= paddle2Y + paddleHeight + 4);
+    return ballX + ballRadius >= canvas.width - paddleWidth && (ballY >= paddle2Y - 4 && ballY <= paddle2Y + paddleHeight + 4);
 }
 
 // Collision with wall or paddle
