@@ -2,13 +2,32 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <title>Gamedev Canvas Workshop</title>
+    <title>Welcome to Pong!</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="./style.css">
 
 </head>
 
 <body>
     <canvas id="myCanvas"></canvas>
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    </script>
+    <div id="radios" class="radioButtons">
+        <input type="radio" name="difficulty" value="Easy"> Easy<br>
+        <input type="radio" name="difficulty" value="Medium"> Medium<br>
+        <input type="radio" name="difficulty" value="Hard"> Hard
+    </div>
     <script src="index.js"></script>
+    <button id="playButton" onclick="playGame()">
+        Play!
+    </button>
+
+
+
 </body>
+
+
+</html>

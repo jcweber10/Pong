@@ -2,6 +2,9 @@ var canvas = document.getElementById("myCanvas");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;;
 var ctx = canvas.getContext("2d");
+// boolean to see if game has started yet
+let isLive = false;
+
 // Keypressed booleans
 let upPressed = false;
 let downPressed = false;
@@ -199,7 +202,10 @@ function draw() {
     leftCollision();
     rightCollision();
     drawPaddles();
-    drawBall();
+    if (isLive) {
+        drawBall();
+    }
+
     accelerateBall(.0003);
     // Moves the ball
     ballX += dx;
@@ -208,4 +214,10 @@ function draw() {
 }
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-setInterval(draw, 10);
+
+let playGame = () => {
+    isLive = true;
+    setInterval(draw, 10);
+    document.getElementById("radios").style.display = "none";
+    document.getElementById("playButton").style.display = "none";
+}
