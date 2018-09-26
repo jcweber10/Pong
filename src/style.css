@@ -9,7 +9,7 @@ canvas {
     margin: 0 auto;
 }
 
-.radioButtons{
+#radios{
     position: absolute;
     top:41.5%;
     left: 56%;

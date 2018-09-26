@@ -1,13 +1,15 @@
 var canvas = document.getElementById("myCanvas");
-canvas.width = window.innerWidth / 2;
-canvas.height = window.innerHeight / 2;
+canvas.width = window.innerWidth / 1.8;
+canvas.height = window.innerHeight / 1.5;
 var ctx = canvas.getContext("2d");
 let redrawCount = 0;
 // boolean to see if game has started yet
 let isLive = false;
 
 // Change in x or y
-let change = .5;
+let change = 1;
+
+let accRate = 1;// = 1;
 
 // Keypressed booleans
 let upPressed = false;
@@ -32,6 +34,8 @@ let dy;
 let dx;
 initBoard();
 
+
+
 // Draws the objects in their starting states
 function initBoard() {
     paddle1Y = canvas.height / 2 - paddleHeight / 2;
@@ -54,6 +58,17 @@ function initBoard() {
             break;
     }
     draw();
+    // setDifficulty();
+}
+
+let setDifficulty = () => {
+    if (document.getElementById("Easy").checked) {
+        accRate = .001
+    } else if (document.getElementById("Medium").checked) {
+        accRate = .01
+    } else {
+        accRate = .05;
+    }
 }
 
 // Release key
@@ -128,17 +143,17 @@ function rightCollision() {
     }
 }
 
-function accelerateBall(rate) {
+function accelerateBall() {
     // Slowly accelerates ball
     if (dx > 0) {
-        dx += rate;
+        dx += accRate;
     } else {
-        dx -= rate;
+        dx -= accRate;
     }
     if (dy > 0) {
-        dy += rate;
+        dy += accRate;
     } else {
-        dy -= rate;
+        dy -= accRate;
     }
 }
 
@@ -207,7 +222,7 @@ function draw() {
     }
 
     if (redrawCount % 10 === 0) {
-        accelerateBall(.000000);
+        accelerateBall();
     }
     // Moves the ball
     ballX += dx;
@@ -220,6 +235,7 @@ document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
 let playGame = () => {
+    setDifficulty();
     isLive = true;
     setInterval(draw, 10);
     document.getElementById("radios").style.display = "none";
